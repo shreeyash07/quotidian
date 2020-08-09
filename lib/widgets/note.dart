@@ -2,6 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+void main(){
+  runApp(new MaterialApp(
+    home: new Homepage(),
+    routes: <String, WidgetBuilder> {
+      "/Secondpage": (BuildContext context) => new SecondPage(),
+    }
+  )
+)
+
+}
+
 class NoteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,7 +25,8 @@ class NoteScreen extends StatelessWidget {
           new IconButton(
               icon: new Icon(Icons.favorite, color: Colors.redAccent),
               iconSize: 70.0,
-              onPressed: null),
+              onPressed:(){Navigator.of(context).pushNamed("/SecondPage");}
+              ),
           new Text("Note")
         ]))));
   }

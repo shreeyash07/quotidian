@@ -1,5 +1,4 @@
 import '../widgets/chart_bar.dart';
-
 import '../models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
