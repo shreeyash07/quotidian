@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotidian/widgets/note.dart';
 import 'package:quotidian/widgets/transaction.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -9,7 +10,7 @@ class Quotidian extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter App',
-      home: MyHomePage(),
+      home: NoteScreen(),
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         accentColor: Colors.purple,
