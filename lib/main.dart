@@ -10,7 +10,7 @@ class Quotidian extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter App',
-      home: NoteScreen(),
+      home: MyHomePage(),
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         accentColor: Colors.purple,
