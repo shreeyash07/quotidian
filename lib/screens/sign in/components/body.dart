@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quotidian/components/default_button.dart';
 import 'package:quotidian/constants.dart';
 import 'package:quotidian/screens/splash/components/sign_form.dart';

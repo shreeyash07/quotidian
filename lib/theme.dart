@@ -15,7 +15,7 @@ ThemeData theme() {
 InputDecorationTheme inputDecorationTheme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(25),
-    borderSide: BorderSide(color: qtextColor),
+    borderSide: BorderSide(color: qTextColor),
     gapPadding: 10,
   );
   return InputDecorationTheme(
