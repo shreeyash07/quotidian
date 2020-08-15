@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quotidian/routes.dart';
+import 'package:quotidian/screens/splash/splash_screen.dart';
+import 'package:quotidian/widgets/main_page.dart';
+import './constants.dart';
 import 'package:quotidian/widgets/note.dart';
 import 'package:quotidian/widgets/transaction.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,25 +13,19 @@ class Quotidian extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter App',
-      home: MyHomePage(),
+      //home: SplashScreen(),
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        accentColor: Colors.purple,
-        errorColor: Colors.red,
         fontFamily: 'Quicksand',
-        textTheme: ThemeData.light().textTheme.copyWith(
-              title: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18),
-            ),
-        appBarTheme: AppBarTheme(
-          textTheme: ThemeData.light().textTheme.copyWith(
-              title: TextStyle(fontFamily: 'OpenSans', fontSize: 20),
-              button: TextStyle(color: Colors.white)),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: qTextColor),
+          bodyText2: TextStyle(color: qTextColor),
         ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }

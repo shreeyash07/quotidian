@@ -9,6 +9,8 @@ import '../widgets/transaction_list.dart';
 import '../widgets/chart.dart';
 
 class MyHomePage extends StatefulWidget {
+  static String routeName = "/transaction";
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }

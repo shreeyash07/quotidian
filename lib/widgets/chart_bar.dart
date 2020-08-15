@@ -11,20 +11,20 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (ctx, constraints) {
-        return Column(
+        return Row(
           children: <Widget>[
             Container(
-              height: constraints.maxHeight * 0.15,
+              width: constraints.maxWidth * 0.15,
               child: FittedBox(
                 child: Text('Rs.${spendingAmount.toStringAsFixed(0)}'),
               ),
             ),
             SizedBox(
-              height: constraints.maxHeight * 0.05,
+              width: constraints.maxWidth * 0.05,
             ),
             Container(
-                height: constraints.maxHeight * 0.6,
-                width: 10,
+                width: constraints.maxWidth * 0.6,
+                height: 10,
                 child: Stack(
                   children: <Widget>[
                     Container(
@@ -38,7 +38,7 @@ class ChartBar extends StatelessWidget {
                       ),
                     ),
                     FractionallySizedBox(
-                      heightFactor: spendingPecOfTotoal,
+                      widthFactor: spendingPecOfTotoal,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
@@ -49,10 +49,10 @@ class ChartBar extends StatelessWidget {
                   ],
                 )),
             SizedBox(
-              height: constraints.maxHeight * 0.05,
+              width: constraints.maxWidth * 0.05,
             ),
             Container(
-              height: constraints.maxHeight * 0.15,
+              width: constraints.maxWidth * 0.15,
               child: FittedBox(
                 child: Text(label),
               ),

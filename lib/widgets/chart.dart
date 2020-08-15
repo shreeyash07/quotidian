@@ -22,7 +22,7 @@ class Chart extends StatelessWidget {
       }
 
       return {
-        'day': DateFormat.E().format(weekDay).substring(0, 1),
+        'day': DateFormat.EEEE().format(weekDay).substring(0, 3),
         'amount': totalSum,
       };
     }).reversed.toList();
@@ -42,7 +42,7 @@ class Chart extends StatelessWidget {
       margin: EdgeInsets.all(20),
       child: Container(
         padding: EdgeInsets.all(10),
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: groupedTransactionValues.map((data) {
             return Flexible(
