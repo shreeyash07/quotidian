@@ -4,7 +4,7 @@ import 'package:quotidian/components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
-class SignForm extends StatefulWidget{
+class SignForm extends StatefulWidget {
   @override
   _SignFormState createState() => _SignFormState();
 }
@@ -14,9 +14,9 @@ class _SignFormState extends State<SignForm> {
   String email;
   String password;
   bool remember = false;
-  final List<String>errors =[];
+  final List<String> errors = [];
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       child: Column(
@@ -30,10 +30,10 @@ class _SignFormState extends State<SignForm> {
               Checkbox(
                 value: remember,
                 activeColor: qPrimaryColor,
-                onChanged: (value){
-                  setState(){
+                onChanged: (value) {
+                  setState(() {
                     remember = value;
-                  };
+                  });
                 },
               ),
               Text("Remember me"),
@@ -47,80 +47,78 @@ class _SignFormState extends State<SignForm> {
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Continue",
-            press: (){
-              if (_formkey.currentstate.validate()){
+            press: () {
+              if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
-            }
-          },
-        ),
-      ],
-    ),
-  );
-}
+              }
+            },
+          ),
+        ],
+      ),
+    );
+  }
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
-          obscureText: true,
-          onSaved: (newvalue) => password = newValue,
-          onChanged: (value){
-              if (value.isNotEmpty && errors.contains(qPassNullError)) {
-          setState((){
+      obscureText: true,
+      onSaved: (newvalue) => password = newvalue,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(qPassNullError)) {
+          setState(() {
             errors.remove(qPassNullError);
           });
-        }else if (value.length >= 8 && 
-        errors.contains(qShortPassError)){
-          setState () {
+        } else if (value.length >= 8 && errors.contains(qShortPassError)) {
+          setState(() {
             errors.remove(qShortPassError);
           });
         }
         return null;
-          },
-           validator: (value){
+      },
+      validator: (value) {
         if (value.isEmpty && !errors.contains(qPassNullError)) {
-          setState((){
+          setState(() {
             errors.add(qPassNullError);
           });
-        }else if (value.length < 8 && 
-        !errors.contains(qShortPassError)){
-          setState () {
+        } else if (value.length < 8 && !errors.contains(qShortPassError)) {
+          setState(() {
             errors.add(qShortPassError);
           });
         }
         return null;
       },
-          decoration: InputDecoration(
-            labelText: "Password",
-            hintText: "Enter your password",
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-          ),
-        );
+      decoration: InputDecoration(
+        labelText: "Password",
+        hintText: "Enter your password",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+      ),
+    );
   }
 
-  TextFormField buildEmailFormField(){
+  TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       onSaved: (newvalue) => email = newvalue,
-      onChanged: (value){
-           if (value.isNotEmpty && errors.contains(qEmailNullError)) {
-          setState((){
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(qEmailNullError)) {
+          setState(() {
             errors.remove(qEmailNullError);
           });
-        }else if (emailValidatorRegExp.hasMatch(value) && 
-        errors.contains(qEmailNullError)){
-          setState () {
+        } else if (emailValidatorRegExp.hasMatch(value) &&
+            errors.contains(qEmailNullError)) {
+          setState(() {
             errors.remove(qInvalidEmailNullError);
           });
         }
         return null;
       },
-      validator: (value){
+      validator: (value) {
         if (value.isEmpty && !errors.contains(qEmailNullError)) {
-          setState((){
+          setState(() {
             errors.add(qEmailNullError);
           });
-        }else if (!emailValidatorRegExp.hasMatch(value) && 
-        !errors.contains(qEmailNullError)){
-          setState () {
+        } else if (!emailValidatorRegExp.hasMatch(value) &&
+            !errors.contains(qEmailNullError)) {
+          setState(() {
             errors.add(qInvalidEmailNullError);
           });
         }
