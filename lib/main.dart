@@ -8,7 +8,9 @@ import 'package:quotidian/widgets/note.dart';
 import 'package:quotidian/widgets/transaction.dart';
 import 'package:flutter/cupertino.dart';
 
-void main() => runApp(Quotidian());
+void main() {
+  runApp(Quotidian());
+}
 
 class Quotidian extends StatelessWidget {
   @override
