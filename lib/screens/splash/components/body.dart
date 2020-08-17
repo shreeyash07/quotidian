@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotidian/screens/sign%20in/sign_in_screen.dart';
 import '../../../components/default_button.dart';
 import 'package:quotidian/constants.dart';
 import 'package:quotidian/widgets/transaction.dart';
@@ -74,7 +75,7 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: "Continue",
                       press: () {
-                        Navigator.pushNamed(context, MyHomePage.routeName);
+                        Navigator.pushNamed(context, SignIn.routeName);
                       },
                     ),
                     Spacer(),
