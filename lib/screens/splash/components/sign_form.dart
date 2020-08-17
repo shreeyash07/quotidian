@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quotidian/components/default_button.dart';
+import 'package:quotidian/widgets/transaction.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -44,12 +45,16 @@ class _SignFormState extends State<SignForm> {
               )
             ],
           ),
+          SizedBox(
+            height: 50,
+          ),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Continue",
             press: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+                Navigator.pushNamed(context, MyHomePage.routeName);
               }
             },
           ),
