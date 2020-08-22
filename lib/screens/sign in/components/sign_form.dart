@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quotidian/components/default_button.dart';
+import 'package:quotidian/screens/sign%20up/sign_up_screen.dart';
 import 'package:quotidian/widgets/transaction.dart';
 
 import '../../../constants.dart';
@@ -58,6 +59,20 @@ class _SignFormState extends State<SignForm> {
               }
             },
           ),
+          SizedBox(
+            height: 50,
+          ),
+          Row(
+            children: <Widget>[
+              Text("Don't have an account ?"),
+              FlatButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, SignUp.routeName);
+                },
+                child: Text("click here"),
+              )
+            ],
+          )
         ],
       ),
     );
