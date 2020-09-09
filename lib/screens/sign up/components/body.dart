@@ -1,10 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quotidian/screens/sign%20in/components/sign_form.dart';
-import 'package:quotidian/screens/sign%20up/sign_up_screen.dart';
+import 'package:quotidian/screens/sign%20up/components/signup_form.dart';
 import 'package:quotidian/size_config.dart';
-
-import '../../../size_config.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -14,28 +10,27 @@ class Body extends StatelessWidget {
         width: double.infinity,
         child: Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(30)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: Column(
             children: [
               Text(
-                "Welcome",
+                "Register",
                 style: TextStyle(
-                  color: Colors.black,
-                  fontSize: getProportionateScreenWidth(28),
-                  fontWeight: FontWeight.bold,
-                ),
+                    color: Colors.black,
+                    fontSize: getProportionateScreenWidth(20),
+                    fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 50,
               ),
               Text(
-                "Sign in with your email and password \nor \ncontinue with social media",
+                "Please fill the form to register your account",
                 textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: 50,
               ),
-              SignForm(),
+              SignUpForm(),
             ],
           ),
         ),
