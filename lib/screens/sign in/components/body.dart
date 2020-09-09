@@ -14,11 +14,11 @@ class Body extends StatelessWidget {
         width: double.infinity,
         child: Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(30)),
           child: Column(
             children: [
               Text(
-                "Welcome Back",
+                "Welcome",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: getProportionateScreenWidth(28),
@@ -29,16 +29,13 @@ class Body extends StatelessWidget {
                 height: 50,
               ),
               Text(
-                "Sign in with your email and password \nor continue with social media",
+                "Sign in with your email and password \nor \ncontinue with social media",
                 textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: 50,
               ),
               SignForm(),
-              SizedBox(
-                height: 50,
-              ),
             ],
           ),
         ),
