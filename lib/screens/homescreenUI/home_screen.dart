@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'components/homescreen.dart';
+import 'components/Body.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/Home_Screen";
@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Home Screen"),
       ),
-      body: HomeScreen(),
+      body: Body(),
     );
   }
 }

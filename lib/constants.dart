@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const qDefaultPaddin = 40.0;
 const qPrimaryColor = Color(0xFFFF7643);
 const qPrimaryLightColor = Color(0xFFFFECDF);
 const qPrimaryGradientColor = LinearGradient(
