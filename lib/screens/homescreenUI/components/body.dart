@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:quotidian/constants.dart';
 import 'package:quotidian/screens/homescreenUI/components/categories.dart';
-import 'package:quotidian/screens/homeScreenUI/components/body.dart';
 
 import 'categories.dart';
 
