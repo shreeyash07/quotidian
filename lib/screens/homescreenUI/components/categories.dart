@@ -9,14 +9,14 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  List<String> categories = ["NOTES", "NEWS", "EXPENSES"];
+  List<String> categories = ["NOTES", "EXPENSES"];
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: qDefaultPaddin),
       child: SizedBox(
-        height: 50,
+        //height: 5,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,

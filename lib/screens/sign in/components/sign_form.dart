@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quotidian/components/default_button.dart';
+import 'package:quotidian/screens/homescreenUI/home_screen.dart';
 import 'package:quotidian/screens/sign%20up/sign_up_screen.dart';
-import 'package:quotidian/screens/HomeScreenUI/home_screen.dart';
 import 'package:quotidian/widgets/transaction.dart';
 
 import '../../../constants.dart';
@@ -56,7 +56,7 @@ class _SignFormState extends State<SignForm> {
             press: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
-                Navigator.pushNamed(context, MyHomePage.routeName);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               }
             },
           ),
