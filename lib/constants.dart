@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const qSpacingUnit = 10;
+
 const qDefaultPaddin = 40.0;
 const qPrimaryColor = Color(0xFFFF7643);
 const qPrimaryLightColor = Color(0xFFFFECDF);

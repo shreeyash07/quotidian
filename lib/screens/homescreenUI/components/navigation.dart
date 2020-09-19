@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quotidian/screens/homescreenUI/components/categories.dart';
 import 'package:quotidian/screens/homescreenUI/fragments/news.dart';
+import 'package:quotidian/screens/homescreenUI/fragments/user.dart';
 
 class Navigation extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class _NavigationState extends State<Navigation> {
   static List<Widget> _widgetOptions = <Widget>[
     Categories(),
     News(),
+    User(),
   ];
 
   void _onItemTapped(int index) {
