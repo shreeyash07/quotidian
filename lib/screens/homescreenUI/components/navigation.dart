@@ -35,8 +35,13 @@ class _NavigationState extends State<Navigation> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
+
               Icons.attach_money,
               color: Color(0xFFFFECDF),
+
+              Icons.home,
+              color: Colors.deepOrangeAccent,
+
             ),
             title: Text("Expenses"),
           ),
@@ -50,14 +55,14 @@ class _NavigationState extends State<Navigation> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.pages,
-              color: Color(0xFFFFECDF),
+              color: Colors.deepOrangeAccent,
             ),
             title: Text("News"),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.supervised_user_circle,
-              color: Color(0xFFFFECDF),
+              color: Colors.deepOrangeAccent,
             ),
             title: Text("User"),
           ),
