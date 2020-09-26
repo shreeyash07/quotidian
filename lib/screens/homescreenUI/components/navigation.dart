@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quotidian/screens/homescreenUI/components/categories.dart';
 import 'package:quotidian/screens/homescreenUI/fragments/news.dart';
+import 'package:quotidian/screens/homescreenUI/fragments/note/note.dart';
 import 'package:quotidian/screens/homescreenUI/fragments/user.dart';
+import 'package:quotidian/widgets/transaction.dart';
 
 class Navigation extends StatefulWidget {
   @override
@@ -11,7 +13,8 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    Categories(),
+    MyHomePage(),
+    Note(),
     News(),
     User(),
   ];
@@ -32,10 +35,17 @@ class _NavigationState extends State<Navigation> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
+              Icons.attach_money,
               color: Color(0xFFFFECDF),
             ),
-            title: Text("Home"),
+            title: Text("Expenses"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.note,
+              color: Color(0xFFFFECDF),
+            ),
+            title: Text("note"),
           ),
           BottomNavigationBarItem(
             icon: Icon(
