@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quotidian/screens/homescreenUI/components/categories.dart';
+
 import 'package:quotidian/screens/homescreenUI/fragments/news.dart';
-import 'package:quotidian/screens/homescreenUI/fragments/note/note.dart';
+import 'package:quotidian/screens/homescreenUI/fragments/notes/notes.dart';
 import 'package:quotidian/screens/homescreenUI/fragments/user.dart';
 import 'package:quotidian/widgets/transaction.dart';
 
@@ -14,7 +14,7 @@ class _NavigationState extends State<Navigation> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
-    Note(),
+    NoteMain(),
     News(),
     User(),
   ];
@@ -35,20 +35,15 @@ class _NavigationState extends State<Navigation> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-
               Icons.attach_money,
-              color: Color(0xFFFFECDF),
-
-              Icons.home,
               color: Colors.deepOrangeAccent,
-
             ),
             title: Text("Expenses"),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.note,
-              color: Color(0xFFFFECDF),
+              color: Colors.deepOrangeAccent,
             ),
             title: Text("note"),
           ),
