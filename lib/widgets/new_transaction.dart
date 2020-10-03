@@ -3,6 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'package:quotidian/models/transaction.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addTX;
@@ -13,10 +17,30 @@ class NewTransaction extends StatefulWidget {
   _NewTransactionState createState() => _NewTransactionState();
 }
 
+Future<Transcations> addTransacrion(String title, String amount) async {
+  final http.Response response = await http.post(
+    "http://54.89.116.234/api/users/transaction",
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      "amount": amount,
+      "title": title,
+    }),
+  );
+
+  if (response.statusCode == 200) {
+    return Transcations.fromJson(json.decode(response.body));
+  } else {
+    throw Exception('Failed to add Trasaction.');
+  }
+}
+
 class _NewTransactionState extends State<NewTransaction> {
   final titleController = TextEditingController();
 
   final amountController = TextEditingController();
+  Transcations _tx;
 
   DateTime _selectedDate;
 

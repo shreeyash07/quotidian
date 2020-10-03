@@ -1,11 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:quotidian/components/default_button.dart';
 import 'package:quotidian/screens/homescreenUI/home_screen.dart';
 import 'package:quotidian/screens/sign%20up/sign_up_screen.dart';
-import 'package:quotidian/widgets/transaction.dart';
-
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'package:http/http.dart' as http;
+
+const SERVER_IP = 'http://52.0.170.63/';
+final storage = FlutterSecureStorage();
 
 class SignForm extends StatefulWidget {
   @override
@@ -13,6 +18,34 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
+  void displayDialog(context, title, text) => showDialog(
+        context: context,
+        builder: (context) =>
+            AlertDialog(title: Text(title), content: Text(text)),
+      );
+
+  Future<String> logIn(String email, String password) async {
+    print(email);
+    print(password);
+    final http.Response res = await http.post(
+      "http://54.89.116.234/api/users/auth/login",
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        "email": email,
+        "password": password,
+      }),
+    );
+    if (res.statusCode == 200) {
+      return res.body;
+    } else {
+      return null;
+    }
+  }
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String email;
   String password;
@@ -53,10 +86,16 @@ class _SignFormState extends State<SignForm> {
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Continue",
-            press: () {
-              if (_formKey.currentState.validate()) {
-                _formKey.currentState.save();
+            press: () async {
+              var email = _emailController.text;
+              var password = _passwordController.text;
+              var jwt = await logIn(email, password);
+              if (jwt != null) {
+                storage.write(key: "jwt", value: jwt);
                 Navigator.pushNamed(context, HomeScreen.routeName);
+              } else {
+                displayDialog(context, "An Error Occurred",
+                    "No account was found matching that username and password");
               }
             },
           ),
@@ -81,6 +120,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: _passwordController,
       obscureText: true,
       onSaved: (newvalue) => password = newvalue,
       onChanged: (value) {
@@ -117,6 +157,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newvalue) => email = newvalue,
       onChanged: (value) {
