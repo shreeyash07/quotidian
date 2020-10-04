@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:quotidian/components/default_button.dart';
 import 'package:quotidian/models/signupModel.dart';
+import 'package:quotidian/screens/homescreenUI/home_screen.dart';
 
 import '../../../size_config.dart';
 import 'package:http/http.dart' as http;
@@ -83,6 +84,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 setState(() {
                   _user = user;
                 });
+                Navigator.pushNamed(context, HomeScreen.routeName);
               }),
         ],
       ),

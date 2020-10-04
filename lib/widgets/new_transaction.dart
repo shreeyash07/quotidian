@@ -12,6 +12,7 @@ class NewTransaction extends StatefulWidget {
   final Function addTX;
 
   NewTransaction(this.addTX);
+  //NewTransaction({Key key, }) : super(key: key);
 
   @override
   _NewTransactionState createState() => _NewTransactionState();
@@ -30,9 +31,16 @@ Future<Transcations> addTransacrion(String title, String amount) async {
   );
 
   if (response.statusCode == 200) {
+    print("transaction succesful");
+    print(response.statusCode);
+    print(response.body);
+
     return Transcations.fromJson(json.decode(response.body));
   } else {
-    throw Exception('Failed to add Trasaction.');
+    print("transaction unsusccess");
+    print(response.statusCode);
+    print(response.body);
+    //throw Exception('Failed to add Trasaction.');
   }
 }
 
@@ -53,7 +61,19 @@ class _NewTransactionState extends State<NewTransaction> {
       return;
     }
     widget.addTX(enteredTittle, enteredAmount, _selectedDate);
+    _sync();
+
     Navigator.of(context).pop();
+  }
+
+  Future _sync() async {
+    final String title = titleController.text;
+    final String amount = amountController.text;
+    final Transcations tx = await addTransacrion(title, amount);
+
+    setState(() {
+      _tx = tx;
+    });
   }
 
   void _presentDatePicker() {
